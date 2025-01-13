@@ -1,0 +1,235 @@
+$offwhite: #f4f4f4;
+$white: white;
+$grey: #ccc;
+$offblack: #555555;
+$listingblackl: #7f7b7b;
+$shadow: rgba(0,0,0,0.2);
+
+body {
+  background-color: $offwhite;
+  height: 100vh;
+
+  .editor-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // justify-content: center;
+ 
+    @media screen and (max-width: 768px) {
+      flex-direction: row; /* Stack toolbar vertically on smaller screens */
+      gap: 5px;
+    }
+
+
+    #editorToolbar {
+      width:100%;
+      position: fixed;
+
+      @media  screen and (max-width:768px) 
+      {
+        position:relative;
+        width: unset;
+        
+      }
+    
+      ul{
+
+        &.toolbar {
+          display: flex;
+          gap: 10px;
+          background-color: $offblack;
+          padding: 10px;
+          flex-direction: row;
+          margin: 30px 0 30px 0;
+          justify-content: space-between;
+
+          @media screen and (max-width: 768px) {
+            flex-direction: column; /* Stack toolbar vertically on smaller screens */
+            gap: 5px;
+          }
+        }
+
+    
+        li {
+          background-color: $offblack;
+          border: none;
+          color: $white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 4px 2px;
+          cursor: pointer;
+          border-radius: 5px;
+    
+          &:hover {
+              background-color: $listingblackl; 
+        }
+
+          &.font-size-dropdown {
+            &:hover {
+              ul.font-size-options {
+                display: block;
+              }
+            }
+
+          }
+        }
+
+        &.font-size-options {
+          position: absolute;
+          margin-left: -34px;
+          top: 46px;
+          background-color: $grey;
+          padding: 0;
+          display: none;
+          box-shadow: 0px 8px 16px 0px $shadow;
+
+          @media screen and (max-width:768px){
+            margin-left: 95px;
+            top: -63px;
+
+          }
+
+          li {
+            width: 60px;
+            background-color: $grey;
+            color: black;
+
+            &:hover {
+              background-color: $listingblackl;
+            }
+          }
+        
+        }
+
+        &#notesWrapper {
+          position: absolute;
+          height: 80vh;
+          padding: 0;
+          display: none;
+          top: 45px;
+          left: -53px;
+          width: 200px;
+          background-color: $grey;
+          padding-top: 20px;
+          overflow-y: auto;
+          box-shadow: 0px 8px 16px 0px $shadow;
+
+          @media screen and (max-width:768px){
+            position: fixed;
+            margin-left: 148px;
+            top: 119px;
+            height: 83%;
+            left:0;
+          }
+          &::-webkit-scrollbar {
+            display: none; /* Hides the scrollbar */
+          }
+
+          li {
+            background-color: $grey;
+            padding:unset;
+            width: 150px;
+            .note-item {
+              margin-bottom: 20px;
+              padding: 10px;
+              &:hover {
+                background-color: $listingblackl;
+              }
+            }
+          }
+        }
+
+        .noteslistWrapper {
+          position:relative;
+
+          &:hover {
+            #notesWrapper {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+
+    #editor {
+      background-color: $white;
+      border: 3px solid $grey;
+      padding: 10px;
+      margin: 30px 30px;
+      min-height: 200px;
+      width: 90%;
+      height: 85vh;
+      margin-top:150px;
+
+      @media screen and (max-width: 768px){
+        height: 90vh;
+        width:85%;
+        margin-top:0;
+        margin:0;
+      }
+    }
+  }
+
+  .bold{
+    font-weight:bold;
+  }
+
+  .italic{
+    font-style: italic;
+  }
+
+  .underline {
+    text-decoration: underline;
+  }
+
+  .left {
+    text-align: left;
+  }
+
+  .right {
+    text-align: right;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  .font-size-dropdown {
+    position: relative;
+  }
+
+  .small {
+    font-size: small;
+  }
+
+  .normal {
+    font-size:medium;
+  }
+
+  .large {
+    font-size: larger;
+  }
+
+}
+
+.highlight {
+  background-color: $offblack;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Tooltip styling */
+.tooltip {
+  position: absolute;
+  background-color: $listingblackl;
+  color: $white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  z-index: 1000;
+  white-space: nowrap;
+  box-shadow: 0 2px 10px $shadow;
+}

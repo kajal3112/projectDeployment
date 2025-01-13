@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rich Text Editor</title>
+        <link rel="stylesheet" href="./app.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+        <script src="./app.js" type="text/javascript" defer></script>
+    </head>
+    <body>
+        <!-- <h1> Rich Text Editor </h1> -->
+        <section id="editorApp" class="editor-container">
+            <nav id="editorToolbar">
+                <ul class="toolbar">
+                    <li class="formatText">Bold</li>
+                    <li class="formatText">Italic</li>
+                    <li class="formatText">Underline</li>
+                    <li class="font-size-dropdown">
+                        Font size
+                        <ul id="fontDropdownMenu" class="font-size-options">
+                            <li>Small</li>
+                            <li>Normal</li>
+                            <li>Large</li>
+                        </ul>
+                    </li>
+
+                    <li class="textAlign">Left</li>
+                    <li class="textAlign">Right</li>
+                    <li class="textAlign">Center</li>
+                    <li id="ClearEditor">Clear Editor</li>
+                    <li id="Savebutton">Save Note</li>
+                    <li class="noteslistWrapper">
+                        Notes List
+                        <ul id="notesWrapper">
+                            <li id="notesList"></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div id="editor" contenteditable="true"></div>
+            
+        </section>
+    </body>
+</html>
+
